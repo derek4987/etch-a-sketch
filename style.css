@@ -1,0 +1,70 @@
+html {
+    background-color: rgb(236, 221, 203);
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    margin-top: 50px;
+}
+
+.border {
+    width: 1100px;
+    height: 720px;
+    background-color: rgb(238, 11, 11);
+    border-radius: 2%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.label {
+    display: inline;
+    font-size: 20px;
+    margin: 0px;
+    padding: 20px;
+}
+
+.knobs {
+    display: flex;
+    margin-top: auto;
+    margin-bottom: 15px;
+    width: 1100px;
+}
+.knobs div {
+    height: 80px;
+    width: 80px;
+    border-radius: 50%;
+    background-color: rgb(243, 234, 234);
+    border-style: groove;
+}
+.left {
+    margin-left: 30px;
+    margin-right: auto;
+}
+.right {
+    margin-right: 30px;
+    margin-left: auto;
+}
+.knobs button {
+    height: 30px;
+    align-self: center;
+    border-style: outset;
+    border-radius: 10%;
+    font-size: 16px;
+    font-weight: 700;
+    padding: 5px 10px;
+    color: black;
+    background-color: rgb(214, 199, 199);
+}
+
+.grid {
+    flex: 0 0 auto;
+    height: 540px;
+    width: 960px;
+    background-color: rgb(247, 245, 245);
+    border: 2px solid black;
+    margin-top: 0px;
+    padding: 0;
+}
