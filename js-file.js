@@ -1,5 +1,8 @@
 createGrid();
 
+let grid = document.querySelector('.grid');
+grid.addEventListener('mouseover', changeColor);
+
 document.querySelector('button').addEventListener('click', clear);
 document.addEventListener('keydown', function(e) {
     if (e.key === 'Escape') {
@@ -47,12 +50,13 @@ function createGrid() {
     const sideLength = parseFloat(Math.sqrt((960*540)/numbOfSquares));
     console.log(x,y,numbOfSquares);
 
-    for (let i = 1; i <= numbOfSquares; i++) {
+    for (let i = 0; i < numbOfSquares; i++) {
         let gridSquare = document.createElement("div");
         gridSquare.classList.add('gridSquare');
+        gridSquare.classList.add(`${i}`);
         gridSquare.style.width = `${sideLength}px`;
         gridSquare.style.maxHeight = `${sideLength}px`;
-        gridSquare.style.backgroundColor = 'rgb(247, 245, 245)';
+        // gridSquare.style.backgroundColor = 'rgb(247, 245, 245)';
         const container = document.querySelector('.grid');
         container.appendChild(gridSquare);
         console.log( gridSquare.style.width);
@@ -61,4 +65,14 @@ function createGrid() {
 
 function changeColor() {
     //document.getElementsByClassName('class') returns an array, so you need to loop over the newly created array and change the background color if the mouse is hovering over it.
+    // let elements = document.getElementsByClassName('gridSquare');
+    // const gridLength = elements.length;
+
+    // document.addEventListener('mouseover')
+    let square = document.querySelector(`.gridSquare`);
+    let red = Math.floor((Math.random() * 256) + 1);
+    let green = Math.floor((Math.random() * 256) + 1);
+    let blue = Math.floor((Math.random() * 256) + 1);
+    square.style.backgroundColor = `rgb(${red},${green},${blue})`;
+        
 }
