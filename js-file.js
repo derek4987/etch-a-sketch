@@ -40,10 +40,9 @@ function width() {
 }
 
 function createGrid() {
-    /* x is number of squares accross. calculate size of boxes based on 19x9 ratio.
+    /* x is number of squares accross. calculate size of boxes based on 16x9 ratio.
     Add all squares as individual <div>'s.
-    Grid <div> class containing all newly imported <div>'s set as flex container with wraping so
-    they should fit perfectly if sized correctly.*/
+    Grid <div> class containing all newly imported <div>'s set as flex container with wraping.*/
     const x = parseFloat(width());
     const y = parseFloat(x/(16/9));
     const numbOfSquares = parseFloat(x * y);
@@ -56,23 +55,16 @@ function createGrid() {
         gridSquare.classList.add(`${i}`);
         gridSquare.style.width = `${sideLength}px`;
         gridSquare.style.maxHeight = `${sideLength}px`;
-        // gridSquare.style.backgroundColor = 'rgb(247, 245, 245)';
         const container = document.querySelector('.grid');
         container.appendChild(gridSquare);
         console.log( gridSquare.style.width);
     }
 }
 
-function changeColor() {
-    //document.getElementsByClassName('class') returns an array, so you need to loop over the newly created array and change the background color if the mouse is hovering over it.
-    // let elements = document.getElementsByClassName('gridSquare');
-    // const gridLength = elements.length;
-
-    // document.addEventListener('mouseover')
-    let square = document.querySelector(`.gridSquare`);
+function changeColor(event) {
     let red = Math.floor((Math.random() * 256) + 1);
     let green = Math.floor((Math.random() * 256) + 1);
     let blue = Math.floor((Math.random() * 256) + 1);
-    square.style.backgroundColor = `rgb(${red},${green},${blue})`;
-        
+    // event.target refers to the child element in the <div class="grid"> element that is targeted.
+    event.target.style.backgroundColor = `rgb(${red},${green},${blue})`;  
 }
