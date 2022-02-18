@@ -1,9 +1,27 @@
 createGrid();
 
 let grid = document.querySelector('.grid');
-grid.addEventListener('mouseover', changeColor);
+grid.addEventListener('mouseover', initialColor);
+document.querySelector('.black').addEventListener('click', black);
+document.querySelector('.rainbow').addEventListener('click', rainbow);
 
-document.querySelector('button').addEventListener('click', clear);
+function black() {
+    grid.addEventListener('mouseover', function(e){
+        e.target.style.backgroundColor = `rgb(0,0,0)`;
+    });
+}
+
+function rainbow() {
+    grid.addEventListener('mouseover', function(e){
+        let red = Math.floor((Math.random() * 256) + 1);
+        let green = Math.floor((Math.random() * 256) + 1);
+        let blue = Math.floor((Math.random() * 256) + 1);
+        // event.target (e.target) refers to the child element in the <div class="grid"> element that is targeted.
+        e.target.style.backgroundColor = `rgb(${red},${green},${blue})`;
+    })
+}
+
+document.querySelector('.clear').addEventListener('click', clear);
 document.addEventListener('keydown', function(e) {
     if (e.key === 'Escape') {
         clear()
@@ -61,10 +79,6 @@ function createGrid() {
     }
 }
 
-function changeColor(event) {
-    let red = Math.floor((Math.random() * 256) + 1);
-    let green = Math.floor((Math.random() * 256) + 1);
-    let blue = Math.floor((Math.random() * 256) + 1);
-    // event.target refers to the child element in the <div class="grid"> element that is targeted.
-    event.target.style.backgroundColor = `rgb(${red},${green},${blue})`;  
+function initialColor(event) {
+    event.target.style.backgroundColor = `rgb(0,0,0)`;  
 }
